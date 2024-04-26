@@ -46,12 +46,13 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-3">
-        <Link to="/login" className="btn">
+        <Link to="/login" className="btn px-8 py-3 font-semibold rounded bg-primary text-white">
           Login
         </Link>
-        <Link to="/register" className="btn">
+        <Link to="/register" className="btn px-8 py-3 font-semibold rounded bg-primary text-white">
           Register
         </Link>
+        <input type="checkbox" value="dark" className="toggle theme-controller" />
       </div>
     </div>
   );
