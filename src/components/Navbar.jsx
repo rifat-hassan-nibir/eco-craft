@@ -1,3 +1,5 @@
+import { Link, NavLink } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
@@ -10,51 +12,40 @@ const Navbar = () => {
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+              <a>Home</a>
             </li>
             <li>
               <a>Item 3</a>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link to="/" className="text-xl font-bold">
+          Eco Craft
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
+        <ul className="menu menu-horizontal px-1 items-center gap-3">
+          <NavLink to="/" className={({ isActive }) => (isActive ? "text-primary font-bold" : "")}>
+            Home
+          </NavLink>
+          <NavLink to="/all-art-and-craft-items" className={({ isActive }) => (isActive ? " text-primary font-bold" : "")}>
+            All Art & Craft Items
+          </NavLink>
+          <NavLink to="/add-craft-item" className={({ isActive }) => (isActive ? " text-primary font-bold" : "")}>
+            Add Craft Item
+          </NavLink>
+          <NavLink to="/my-art-and-craft-list" className={({ isActive }) => (isActive ? " text-primary font-bold" : "")}>
+            My Art & Craft List
+          </NavLink>
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end gap-3">
+        <Link to="/login" className="btn">
+          Login
+        </Link>
+        <Link to="/register" className="btn">
+          Register
+        </Link>
       </div>
     </div>
   );
