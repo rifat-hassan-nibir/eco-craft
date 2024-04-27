@@ -33,7 +33,11 @@ const Routes = createBrowserRouter([
       },
       {
         path: "/my-art-and-craft-list",
-        element: <MyArtAndCraftList></MyArtAndCraftList>,
+        element: (
+          <ProtectedRoute>
+            <MyArtAndCraftList></MyArtAndCraftList>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/login",

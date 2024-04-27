@@ -5,7 +5,6 @@ import { RiUser3Line } from "react-icons/ri";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
-  console.log(user);
 
   // Theme Switcher
   const [theme, setTheme] = useState("light");

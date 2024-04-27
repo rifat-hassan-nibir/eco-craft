@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../authProvider/AuthProvider";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+
 const AddCraftItem = () => {
+  const { user } = useContext(AuthContext);
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,7 +20,7 @@ const AddCraftItem = () => {
     const user_name = form.user_name.value;
     const user_email = form.user_email.value;
 
-    console.log(
+    const artAndCraftItems = {
       image_url,
       item_name,
       subcategory_name,
@@ -25,11 +31,33 @@ const AddCraftItem = () => {
       processing_time,
       stock_status,
       user_name,
-      user_email
-    );
+      user_email,
+    };
+
+    console.log(artAndCraftItems);
+
+    fetch("http://localhost:5000/add-craft-item", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(artAndCraftItems),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Item Added",
+            text: "User added successfully",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+          form.reset();
+        }
+      });
   };
   return (
-    <div className="lg:pt-[40px] lg:pb-[100px]">
+    <div className="lg:pt-[40px] lg:pb-[100px] container mx-auto">
       <h1 className="text-[32px] font-semibold text-center lg:mb-[50px]">Add Craft Items</h1>
       <form onSubmit={handleFormSubmit}>
         <div className="grid lg:grid-cols-3 gap-[24px]">
@@ -127,6 +155,8 @@ const AddCraftItem = () => {
               placeholder="User Name"
               id="user-name"
               className="input input-bordered w-full rounded-none"
+              defaultValue={user.displayName}
+              disabled
               required
             />
           </div>
@@ -138,6 +168,8 @@ const AddCraftItem = () => {
               placeholder="User Email"
               id="user-email"
               className="input input-bordered w-full rounded-none"
+              defaultValue={user.email}
+              disabled
               required
             />
           </div>
