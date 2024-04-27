@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { AuthContext } from "../authProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { createUser } = useContext(AuthContext);
 
   const {
     register,
@@ -26,10 +29,23 @@ const Register = () => {
     if (!/[a-z]/.test(password)) {
       return alert("Password should contain at least one lowecase character");
     }
+
+    // Create User Function
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: image,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto p-8 lg:my-[50px] space-y-3 rounded-xl bg-secondary text-gray-800">
+    <div className="w-full max-w-lg mx-auto p-8 lg:my-[50px] space-y-3 rounded-xl bg-secondary dark:bg-slate-400 text-gray-800">
       <h1 className="text-2xl font-bold text-center">Register</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="space-y-1 text-sm">
