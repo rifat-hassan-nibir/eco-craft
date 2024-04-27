@@ -1,13 +1,15 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { AuthContext } from "../authProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -33,10 +35,12 @@ const Register = () => {
     // Create User Function
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
         updateProfile(result.user, {
           displayName: name,
           photoURL: image,
+        }).then(() => {
+          toast.success("Account created successfully");
+          navigate("/");
         });
       })
       .catch((error) => {
