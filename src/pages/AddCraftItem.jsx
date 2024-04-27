@@ -139,7 +139,7 @@ const AddCraftItem = () => {
             />
           </div>
         </div>
-        <button className="btn w-full p-3 rounded-none font-semibold bg-primary text-white mt-[24px]">Add Item</button>
+        <button className="btn w-full p-3 rounded-none font-semibold bg-primary text-white mt-[32px]">Add Item</button>
       </form>
     </div>
   );
