@@ -21,7 +21,8 @@ const AuthProvider = ({ children }) => {
 
   //   Logout User
   const logoutUser = () => {
-    return signOut(auth);
+    setUser(null);
+    signOut(auth);
   };
 
   useEffect(() => {

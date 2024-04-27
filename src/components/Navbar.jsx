@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../authProvider/AuthProvider";
+import { RiUser3Line } from "react-icons/ri";
 
 const Navbar = () => {
+  const { user, logoutUser } = useContext(AuthContext);
+
   // Theme Switcher
   const [theme, setTheme] = useState("light");
 
+  // Theme Changer
   const handleTheme = (e) => {
     if (e.target.checked) {
       setTheme("dark");
@@ -16,6 +21,8 @@ const Navbar = () => {
   useEffect(() => {
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
+
+  // Logout User
 
   return (
     <div className="navbar bg-base-100 py-[30px]">
@@ -33,10 +40,10 @@ const Navbar = () => {
             <NavLink to="/all-art-and-craft-items" className={({ isActive }) => (isActive ? "text-primary font-bold py-1" : "py-1")}>
               All Art & Craft Items
             </NavLink>
-            <NavLink to="/add-craft-item" className={({ isActive }) => (isActive ? " text-primary font-bold py-1" : "py-1")}>
+            <NavLink to="/add-craft-item" className={({ isActive }) => (isActive ? "text-primary font-bold py-1" : "py-1")}>
               Add Craft Item
             </NavLink>
-            <NavLink to="/my-art-and-craft-list" className={({ isActive }) => (isActive ? " text-primary font-bold py-1" : "py-1")}>
+            <NavLink to="/my-art-and-craft-list" className={({ isActive }) => (isActive ? "text-primary font-bold py-1" : "py-1")}>
               My Art & Craft List
             </NavLink>
           </ul>
@@ -67,14 +74,29 @@ const Navbar = () => {
           </NavLink>
         </ul>
       </div>
-      <div className="navbar-end gap-3">
-        <Link to="/login" className="btn px-8 py-3 font-semibold rounded-none bg-primary text-white">
-          Login
-        </Link>
-        <Link to="/register" className="btn px-8 py-3 font-semibold rounded-none bg-primary text-white">
-          Register
-        </Link>
+      <div className="navbar-end gap-5">
         <input onChange={handleTheme} type="checkbox" className="toggle theme-controller" />
+        {user ? (
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button">
+              <RiUser3Line className="size-6" />
+            </div>
+            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li>
+                <button onClick={logoutUser}>Logout</button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div className="gap-3">
+            <Link to="/login" className="btn px-8 py-3 font-semibold rounded-none bg-primary text-white">
+              Login
+            </Link>
+            <Link to="/register" className="btn px-8 py-3 font-semibold rounded-none bg-primary text-white">
+              Register
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
