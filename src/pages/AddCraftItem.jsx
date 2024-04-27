@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { AuthContext } from "../authProvider/AuthProvider";
-import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const AddCraftItem = () => {

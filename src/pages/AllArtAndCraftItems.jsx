@@ -1,7 +1,11 @@
+import { useLoaderData } from "react-router-dom";
+
 const AllArtAndCraftItems = () => {
+  const allArtAndCraftItems = useLoaderData();
+  console.log(allArtAndCraftItems);
   return (
-    <div>
-      <h1>All art and crafts</h1>
+    <div className="container mx-auto">
+      <h1>All art and crafts {allArtAndCraftItems.length}</h1>
     </div>
   );
 };
