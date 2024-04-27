@@ -5,6 +5,7 @@ import { RiUser3Line } from "react-icons/ri";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
+  console.log(user);
 
   // Theme Switcher
   const [theme, setTheme] = useState("light");
@@ -79,22 +80,30 @@ const Navbar = () => {
         {user ? (
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button">
-              <RiUser3Line className="size-6" />
+              {/* <RiUser3Line className="size-6" /> */}
+              <img src={user.photoURL} title={user.displayName} className="border-2 border-primary size-10 rounded-full w-full" />
             </div>
-            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+            <ul tabIndex={0} className="dropdown-content z-[20] menu p-2 shadow bg-base-100 rounded-box w-52">
               <li>
                 <button onClick={logoutUser}>Logout</button>
               </li>
             </ul>
           </div>
         ) : (
-          <div className="gap-3">
-            <Link to="/login" className="btn px-8 py-3 font-semibold rounded-none bg-primary text-white">
-              Login
-            </Link>
-            <Link to="/register" className="btn px-8 py-3 font-semibold rounded-none bg-primary text-white">
-              Register
-            </Link>
+          <div className="flex items-center gap-3">
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button">
+                <RiUser3Line className="size-6" />
+              </div>
+              <ul tabIndex={0} className="dropdown-content z-[20] menu p-2 shadow bg-base-100 rounded-box w-52">
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/register">Register</Link>
+                </li>
+              </ul>
+            </div>
           </div>
         )}
       </div>

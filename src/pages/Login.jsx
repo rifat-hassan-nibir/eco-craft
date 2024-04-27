@@ -1,13 +1,16 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../authProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const {
     register,
@@ -20,11 +23,12 @@ const Login = () => {
 
     // Login User
     loginUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        toast.success("Logged in successfuly");
+        navigate("/");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        toast.error("Email or Password did not match");
       });
   };
 

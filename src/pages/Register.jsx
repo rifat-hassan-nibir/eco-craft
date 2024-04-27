@@ -23,13 +23,13 @@ const Register = () => {
 
     // Password validation
     if (password.length < 6) {
-      return alert("Password should be less than 6 digits");
+      return toast.error("Password should not be less than 6 digits");
     }
     if (!/[A-Z]/.test(password)) {
-      return alert("Password should contain at least one uppercase character");
+      return toast.error("Password should contain at least one uppercase character");
     }
     if (!/[a-z]/.test(password)) {
-      return alert("Password should contain at least one lowecase character");
+      return toast.error("Password should contain at least one lowercase character");
     }
 
     // Create User Function
