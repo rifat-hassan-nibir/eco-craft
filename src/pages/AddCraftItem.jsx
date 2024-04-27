@@ -83,13 +83,16 @@ const AddCraftItem = () => {
           </div>
           <div>
             <label htmlFor="rating">Rating</label>
-            <select id="rating" name="rating" className="select select-bordered w-full rounded-none" required>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+            <input
+              type="number"
+              min="1"
+              max="5"
+              step="0.1"
+              id="rating"
+              name="rating"
+              className="input input-bordered w-full rounded-none"
+              required
+            />
           </div>
           <div>
             <label htmlFor="customization">Customization</label>
@@ -101,7 +104,7 @@ const AddCraftItem = () => {
           <div>
             <label htmlFor="processing-time">Processing Time</label>
             <input
-              type="number"
+              type="text"
               name="processing_time"
               placeholder="Processing Time"
               id="processing-time"
