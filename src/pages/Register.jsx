@@ -39,12 +39,13 @@ const Register = () => {
           displayName: name,
           photoURL: image,
         }).then(() => {
-          toast.success("Account created successfully");
+          toast.success("Account created successfuly");
           navigate("/");
         });
       })
       .catch((error) => {
         console.log(error);
+        toast.error("Error");
       });
   };
 
