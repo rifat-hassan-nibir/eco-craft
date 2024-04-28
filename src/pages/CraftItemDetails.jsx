@@ -4,12 +4,24 @@ import { useParams } from "react-router-dom";
 const CraftItemDetails = () => {
   const { id } = useParams();
   const [craftItemData, setCraftItemData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch(`http://localhost:5000/craft-item-details/${id}`)
       .then((res) => res.json())
-      .then((data) => setCraftItemData(data));
+      .then((data) => {
+        setCraftItemData(data);
+        setIsLoading(false);
+      });
   }, [id]);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-[80vh]">
+        <span className="loading loading-spinner loading-lg mx-auto"></span>
+      </div>
+    );
+  }
 
   const {
     image_url,
