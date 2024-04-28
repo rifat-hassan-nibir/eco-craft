@@ -1,7 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../authProvider/AuthProvider";
+import MyItemsCard from "../components/MyItemsCard";
 
 const MyArtAndCraftList = () => {
+  const [myItems, setMyItems] = useState([]);
   const { user } = useContext(AuthContext);
   const email = user.email;
   console.log(user.email);
@@ -9,12 +11,16 @@ const MyArtAndCraftList = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/my-art-and-craft-list/${email}`)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => setMyItems(data));
   }, [email]);
 
   return (
     <div className="container mx-auto">
-      <h1>My art and craft items</h1>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
+        {myItems.map((myItem, index) => (
+          <MyItemsCard myItem={myItem} key={index}></MyItemsCard>
+        ))}
+      </div>
     </div>
   );
 };

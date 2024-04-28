@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const CraftItemCard = ({ singleCraftItem }) => {
-  console.log(singleCraftItem);
   const { _id, image_url, item_name, short_description, rating } = singleCraftItem;
   return (
     <div className="relative mx-auto flex w-full max-w-[26rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
