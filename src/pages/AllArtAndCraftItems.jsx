@@ -3,14 +3,24 @@ import { useEffect, useState } from "react";
 
 const AllArtAndCraftItems = () => {
   const [allArtAndCraftItems, setAllArtAndCraftItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:5000/all-items")
       .then((res) => res.json())
       .then((data) => {
         setAllArtAndCraftItems(data);
+        setLoading(false);
       });
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-[80vh]">
+        <span className="loading loading-spinner loading-lg mx-auto"></span>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto">
