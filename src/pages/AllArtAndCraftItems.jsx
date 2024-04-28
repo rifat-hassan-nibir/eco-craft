@@ -24,6 +24,7 @@ const AllArtAndCraftItems = () => {
 
   return (
     <div className="container mx-auto">
+      
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}

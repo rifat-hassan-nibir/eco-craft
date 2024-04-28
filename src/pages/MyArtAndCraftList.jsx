@@ -27,6 +27,9 @@ const MyArtAndCraftList = () => {
 
   return (
     <div className="container mx-auto">
+      {myItems.length < 1 && (
+        <h1 className="text-[32px] flex items-center justify-center font-semibold text-center h-[50vh]">You have not added any item yet</h1>
+      )}
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
         {myItems.map((myItem, index) => (
           <MyItemsCard myItem={myItem} key={index}></MyItemsCard>

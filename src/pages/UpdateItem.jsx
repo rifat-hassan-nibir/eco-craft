@@ -64,7 +64,7 @@ const UpdateItem = () => {
 
   return (
     <div className="lg:pt-[40px] lg:pb-[100px] container mx-auto">
-      <h1 className="text-[32px] font-semibold text-center lg:mb-[50px]">Add Craft Items</h1>
+      <h1 className="text-[32px] font-semibold text-center lg:mb-[50px]">Update Item</h1>
       <form onSubmit={handleUpdate}>
         <div className="grid lg:grid-cols-3 gap-[24px]">
           <div>
