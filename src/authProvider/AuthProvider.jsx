@@ -23,18 +23,19 @@ const AuthProvider = ({ children }) => {
 
   //   Logout User
   const logoutUser = () => {
-    setLoading(false);
     setUser(null);
     signOut(auth);
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (loggedInUser) => {
-      if (loggedInUser) {
-        setUser(loggedInUser);
-        setLoading(false);
-      }
+    const unSubscribe = onAuthStateChanged(auth, (loggedInUser) => {
+      setUser(loggedInUser);
+      setLoading(false);
     });
+
+    return () => {
+      unSubscribe();
+    };
   }, []);
 
   const authInfo = { user, setUser, createUser, loginUser, logoutUser, loading };
