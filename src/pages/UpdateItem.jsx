@@ -1,17 +1,64 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../authProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const UpdateItem = () => {
   const { user } = useContext(AuthContext);
 
   const myItemData = useLoaderData();
 
-  const { image_url, item_name, subcategory_name, rating, customization, short_description, price, stock_status, processing_time } =
+  const { _id, image_url, item_name, subcategory_name, rating, customization, short_description, price, stock_status, processing_time } =
     myItemData;
 
-  const handleUpdate = () => {
-    console.log("hello");
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const image_url = form.image_url.value;
+    const item_name = form.item_name.value;
+    const subcategory_name = form.subcategory_name.value;
+    const short_description = form.short_description.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const customization = form.customization.value;
+    const processing_time = form.processing_time.value;
+    const stock_status = form.stock_status.value;
+    const user_name = form.user_name.value;
+    const user_email = form.user_email.value;
+
+    const itemInfo = {
+      image_url,
+      item_name,
+      subcategory_name,
+      short_description,
+      price,
+      rating,
+      customization,
+      processing_time,
+      stock_status,
+      user_name,
+      user_email,
+    };
+
+    fetch(`http://localhost:5000/update-item/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(itemInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire({
+            title: "Item Updated",
+            text: "Item updated successfully",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+        }
+      });
   };
   console.log(myItemData);
 
