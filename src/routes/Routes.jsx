@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ProtectedRoute from "./ProtectedRoute";
 import CraftItemDetails from "../pages/CraftItemDetails";
+import UpdateItem from "../pages/UpdateItem";
 
 const Routes = createBrowserRouter([
   {
@@ -47,6 +48,15 @@ const Routes = createBrowserRouter([
             <CraftItemDetails></CraftItemDetails>
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "/update-item/:id",
+        element: (
+          <ProtectedRoute>
+            <UpdateItem></UpdateItem>
+          </ProtectedRoute>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:5000/craft-item-details/${params.id}`),
       },
       {
         path: "/login",

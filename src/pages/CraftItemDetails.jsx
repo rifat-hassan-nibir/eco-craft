@@ -11,8 +11,19 @@ const CraftItemDetails = () => {
       .then((data) => setCraftItemData(data));
   }, [id]);
 
-  const { image_url, item_name, subcategory_name, rating, customization, short_description, price, stock_status, user_name, user_email } =
-    craftItemData;
+  const {
+    image_url,
+    item_name,
+    subcategory_name,
+    rating,
+    customization,
+    short_description,
+    price,
+    stock_status,
+    processing_time,
+    user_name,
+    user_email,
+  } = craftItemData;
 
   return (
     <div>
@@ -47,6 +58,7 @@ const CraftItemDetails = () => {
               <p className="leading-relaxed">In Stock: {stock_status}</p>
               <p className="leading-relaxed">User Name: {user_name}</p>
               <p className="leading-relaxed">In Stock: {user_email}</p>
+              <p className="leading-relaxed">Processing Time: {processing_time}</p>
             </div>
           </div>
         </div>
