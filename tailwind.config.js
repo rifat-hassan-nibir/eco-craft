@@ -1,11 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+import withMT from "@material-tailwind/html/utils/withMT";
+export default withMT({
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: ["selector", '[data-theme="dark"]'],
   theme: {
+    fontFamily: {
+      sans: ["DM Sans", "sans-serif"],
+    },
     extend: {
       colors: {
-        primary: "#a7815f",
+        primary: "#212121",
         secondary: "#fdf8f7",
       },
     },
@@ -14,4 +18,4 @@ export default {
   daisyui: {
     themes: ["light", "dark"],
   },
-};
+});
