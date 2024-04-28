@@ -85,12 +85,12 @@ const AddCraftItem = () => {
           <div>
             <label htmlFor="subcategory-name">Subcategory Name</label>
             <select id="subcategory-name" name="subcategory_name" className="select select-bordered w-full rounded-none" required>
-              <option value="wooden_furniture_&_sculptures">Wooden Furniture & Sculptures</option>
-              <option value="wooden_home_decor">Wooden Home Decor</option>
-              <option value="wooden_utensils_and_kitchenware">Wooden Utensils and Kitchenware</option>
-              <option value="jute_home_decor">Jute Home Decor</option>
-              <option value="jute_kitchenware_and_utensils">Jute Kitchenware & utensils</option>
-              <option value="jute_and_wooden_jewellery">Jute and wooden jewellery</option>
+              <option value="Wooden Furniture & Sculptures">Wooden Furniture & Sculptures</option>
+              <option value="Wooden Home Decor">Wooden Home Decor</option>
+              <option value="Wooden Utensils and Kitchenware">Wooden Utensils and Kitchenware</option>
+              <option value="Jute Home Decor">Jute Home Decor</option>
+              <option value="Jute Kitchenware & Utensils">Jute Kitchenware & Utensils</option>
+              <option value="Jute and wooden jewellery">Jute and wooden jewellery</option>
             </select>
           </div>
           <div className="lg:col-span-2">
@@ -124,8 +124,8 @@ const AddCraftItem = () => {
           <div>
             <label htmlFor="customization">Customization</label>
             <select id="customization" name="customization" className="select select-bordered w-full rounded-none" required>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
             </select>
           </div>
           <div>
@@ -142,8 +142,8 @@ const AddCraftItem = () => {
           <div>
             <label htmlFor="stock-status">Stock Status</label>
             <select id="stock-status" name="stock_status" className="select select-bordered w-full rounded-none" required>
-              <option value="yes">In Stock</option>
-              <option value="no">Made to Order</option>
+              <option value="Yes">In Stock</option>
+              <option value="No">Made to Order</option>
             </select>
           </div>
           <div>
