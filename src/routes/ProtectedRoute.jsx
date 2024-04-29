@@ -8,8 +8,8 @@ const ProtectedRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="flex justify-center h-[70vh]">
-        <span className="loading loading-infinity loading-lg"></span>
+      <div className="flex justify-center items-center h-[80vh]">
+        <span className="loading loading-spinner loading-lg mx-auto"></span>
       </div>
     );
   }

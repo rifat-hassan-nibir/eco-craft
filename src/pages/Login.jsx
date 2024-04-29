@@ -37,7 +37,7 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
-        toast.success("Google Login Successfull");
+        toast.success("Google Login Successful");
         navigate("/");
       })
       .then((error) => {
@@ -49,7 +49,7 @@ const Login = () => {
     githubLogin()
       .then((result) => {
         console.log(result.user);
-        toast.success("Github Login Successfull");
+        toast.success("Github Login Successful");
         navigate("/");
       })
       .then((error) => {
