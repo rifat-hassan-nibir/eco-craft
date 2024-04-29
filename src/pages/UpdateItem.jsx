@@ -60,7 +60,6 @@ const UpdateItem = () => {
         }
       });
   };
-  console.log(myItemData);
 
   return (
     <div className="lg:pt-[40px] lg:pb-[100px] container mx-auto">

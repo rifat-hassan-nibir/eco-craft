@@ -33,8 +33,6 @@ const AddCraftItem = () => {
       user_email,
     };
 
-    console.log(artAndCraftItems);
-
     fetch("http://localhost:5000/add-craft-item", {
       method: "POST",
       headers: {
