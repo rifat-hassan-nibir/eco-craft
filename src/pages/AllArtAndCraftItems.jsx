@@ -6,7 +6,7 @@ const AllArtAndCraftItems = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/all-items")
+    fetch("https://eco-craft-server.vercel.app/all-items")
       .then((res) => res.json())
       .then((data) => {
         setAllArtAndCraftItems(data);
@@ -24,7 +24,6 @@ const AllArtAndCraftItems = () => {
 
   return (
     <div className="container mx-auto">
-      
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}

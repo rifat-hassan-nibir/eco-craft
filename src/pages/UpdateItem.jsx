@@ -41,7 +41,7 @@ const UpdateItem = () => {
       user_email,
     };
 
-    fetch(`http://localhost:5000/update-item/${_id}`, {
+    fetch(`https://eco-craft-server.vercel.app/update-item/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

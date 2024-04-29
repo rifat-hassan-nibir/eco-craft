@@ -56,7 +56,7 @@ const Routes = createBrowserRouter([
             <UpdateItem></UpdateItem>
           </ProtectedRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/craft-item-details/${params.id}`),
+        loader: ({ params }) => fetch(`https://eco-craft-server.vercel.app/craft-item-details/${params.id}`),
       },
       {
         path: "/login",

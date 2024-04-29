@@ -7,7 +7,7 @@ const CraftItemDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/craft-item-details/${id}`)
+    fetch(`https://eco-craft-server.vercel.app/craft-item-details/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCraftItemData(data);

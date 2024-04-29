@@ -33,7 +33,7 @@ const AddCraftItem = () => {
       user_email,
     };
 
-    fetch("http://localhost:5000/add-craft-item", {
+    fetch("https://eco-craft-server.vercel.app/add-craft-item", {
       method: "POST",
       headers: {
         "content-type": "application/json",
