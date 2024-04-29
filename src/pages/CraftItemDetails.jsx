@@ -69,7 +69,7 @@ const CraftItemDetails = () => {
               <h1 className="text-gray-900 text-xl font-semibold mb-1">Price: ${price}</h1>
               <p className="leading-relaxed">In Stock: {stock_status}</p>
               <p className="leading-relaxed">User Name: {user_name}</p>
-              <p className="leading-relaxed">In Stock: {user_email}</p>
+              <p className="leading-relaxed">User Email: {user_email}</p>
               <p className="leading-relaxed">Processing Time: {processing_time}</p>
             </div>
           </div>
