@@ -5,7 +5,6 @@ import SubCategoriesCard from "../components/Homepage/SubCategoriesCard";
 
 const Home = () => {
   const subCategoriesData = useLoaderData();
-  console.log(subCategoriesData);
   return (
     <div>
       <Hero></Hero>

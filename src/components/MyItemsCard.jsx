@@ -7,7 +7,7 @@ const MyItemsCard = ({ myItem, handleDelete }) => {
     <div className="mx-auto">
       <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl">
         <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-[250px]">
-          <img src={image_url} alt="card-image" className="object-cover w-full h-full" />
+          <img src={image_url} alt="card-image" className="w-full h-full" />
         </div>
         <div className="p-6">
           <div className="flex items-center justify-between mb-2">

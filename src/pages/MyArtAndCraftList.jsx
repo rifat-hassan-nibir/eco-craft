@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../authProvider/AuthProvider";
 import MyItemsCard from "../components/MyItemsCard";
-import Swal from "sweetalert2";
 
 const MyArtAndCraftList = () => {
   const [myItems, setMyItems] = useState([]);
@@ -28,33 +27,11 @@ const MyArtAndCraftList = () => {
 
   // Delete item function
   const handleDelete = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`https://eco-craft-server.vercel.app/delete-item/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              const remainingItems = myItems.filter((item) => item._id !== id);
-              setMyItems(remainingItems);
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success",
-              });
-            }
-          });
-      }
-    });
+    fetch(`https://eco-craft-server.vercel.app/delete/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   return (

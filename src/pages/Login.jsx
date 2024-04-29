@@ -41,7 +41,7 @@ const Login = () => {
         navigate("/");
       })
       .then((error) => {
-        console.log(error.message);
+        console.log(error);
         toast.error("Error");
       });
   };
@@ -53,7 +53,7 @@ const Login = () => {
         navigate("/");
       })
       .then((error) => {
-        console.log(error.message);
+        console.log(error);
         toast.error("Error");
       });
   };
