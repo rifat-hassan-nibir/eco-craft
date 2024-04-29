@@ -10,6 +10,7 @@ import Register from "../pages/Register";
 import ProtectedRoute from "./ProtectedRoute";
 import CraftItemDetails from "../pages/CraftItemDetails";
 import UpdateItem from "../pages/UpdateItem";
+import SubCategoriesProduct from "../pages/SubCategoriesProduct";
 
 const Routes = createBrowserRouter([
   {
@@ -58,6 +59,11 @@ const Routes = createBrowserRouter([
           </ProtectedRoute>
         ),
         loader: ({ params }) => fetch(`https://eco-craft-server.vercel.app/craft-item-details/${params.id}`),
+      },
+      {
+        path: "/sub-category/:name",
+        element: <SubCategoriesProduct></SubCategoriesProduct>,
+        loader: ({ params }) => fetch(`http://localhost:5000/sub-category/${params.name}`),
       },
       {
         path: "/login",
