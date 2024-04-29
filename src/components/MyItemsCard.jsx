@@ -1,17 +1,7 @@
 import { Link } from "react-router-dom";
 
-const MyItemsCard = ({ myItem }) => {
+const MyItemsCard = ({ myItem, handleDelete }) => {
   const { _id, image_url, item_name, short_description, price, rating, customization, stock_status } = myItem;
-
-  const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delete-item/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-  };
 
   return (
     <div className="mx-auto">

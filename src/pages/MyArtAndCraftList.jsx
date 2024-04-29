@@ -25,6 +25,19 @@ const MyArtAndCraftList = () => {
     );
   }
 
+  // Delete item function
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/delete-item/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const remainingItems = myItems.filter((item) => item._id !== id);
+        setMyItems(remainingItems);
+      });
+  };
+
   return (
     <div className="container mx-auto">
       {myItems.length < 1 && (
@@ -32,7 +45,7 @@ const MyArtAndCraftList = () => {
       )}
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
         {myItems.map((myItem, index) => (
-          <MyItemsCard myItem={myItem} key={index}></MyItemsCard>
+          <MyItemsCard myItem={myItem} handleDelete={handleDelete} key={index}></MyItemsCard>
         ))}
       </div>
     </div>
