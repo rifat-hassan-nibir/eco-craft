@@ -62,7 +62,7 @@ const Routes = createBrowserRouter([
       {
         path: "/sub-category/:name",
         element: <SubCategoriesProduct></SubCategoriesProduct>,
-        loader: ({ params }) => fetch(`http://localhost:5000/sub-category/${params.name}`),
+        loader: ({ params }) => fetch(`https://eco-craft-server.vercel.app/sub-category/${params.name}`),
       },
       {
         path: "/login",
