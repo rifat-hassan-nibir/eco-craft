@@ -69,7 +69,7 @@ const MyArtAndCraftList = () => {
 
   return (
     <div className="container mx-auto lg:mt-[50px] lg:mb-[100px]">
-      <div className="w-[30%] mx-auto mb-5">
+      <div className="lg:w-[30%] w-[60%] mx-auto mb-5">
         <label htmlFor="customization">Filter By Customization</label>
         <select
           onChange={handleCustomization}
