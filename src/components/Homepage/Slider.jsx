@@ -1,6 +1,7 @@
 import slide1 from "../../assets/slide-1.jpg";
 import slide2 from "../../assets/slide-2.jpg";
 import slide3 from "../../assets/slide-3.jpg";
+import slide4 from "../../assets/slide-4.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -27,13 +28,16 @@ const Slider = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src={slide1} />
+          <img className="w-full h-[400px]" src={slide1} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slide2} />
+          <img className="w-full h-[400px]" src={slide2} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={slide3} />
+          <img className="w-full h-[400px]" src={slide3} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="w-full h-[400px]" src={slide4} />
         </SwiperSlide>
       </Swiper>
     </div>

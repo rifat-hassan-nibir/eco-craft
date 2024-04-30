@@ -23,7 +23,7 @@ const AllArtAndCraftItems = () => {
   }
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto pt-[30px] pb-[50px]">
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}

@@ -4,7 +4,7 @@ const SubCategoryWiseProductCard = ({ productData }) => {
   const { _id, image_url, item_name, price, rating, customization, stock_status, short_description, processing_time } = productData;
   return (
     <div className="mx-auto">
-      <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl">
+      <div className="relative flex flex-col gap-5 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl">
         <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl h-[250px]">
           <img src={image_url} alt="card-image" className="w-full h-full" />
         </div>
