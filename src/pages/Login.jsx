@@ -40,11 +40,13 @@ const Login = () => {
         toast.success("Google Login Successful");
         navigate("/");
       })
-      .then((error) => {
+      .catch((error) => {
         console.log(error);
         toast.error("Error");
       });
   };
+
+  // Github Login
   const handleGithubLogin = () => {
     githubLogin()
       .then((result) => {
@@ -52,7 +54,7 @@ const Login = () => {
         toast.success("Github Login Successful");
         navigate("/");
       })
-      .then((error) => {
+      .catch((error) => {
         console.log(error);
         toast.error("Error");
       });
