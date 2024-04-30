@@ -4,6 +4,7 @@ import MyItemsCard from "../components/MyItemsCard";
 
 const MyArtAndCraftList = () => {
   const [myItems, setMyItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState(myItems);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const email = user.email;
@@ -27,7 +28,7 @@ const MyArtAndCraftList = () => {
 
   // Delete item function
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delete/${id}`, {
+    fetch(`https://eco-craft-server.vercel.app/delete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -37,26 +38,14 @@ const MyArtAndCraftList = () => {
   // Customization Filter
   const handleCustomization = (e) => {
     const selectedOption = e.target.value;
-    console.log(selectedOption);
+
     if (selectedOption === "Yes") {
-      fetch(`https://eco-craft-server.vercel.app/my-art-and-craft-list/${email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setMyItems(data);
-          const filteredItems = myItems.filter((item) => item.customization === "Yes");
-          setMyItems(filteredItems);
-          console.log(myItems);
-        });
+      const filteredNewItems = myItems.filter((item) => item.customization === "Yes");
+      setFilteredItems(filteredNewItems);
     }
     if (selectedOption === "No") {
-      fetch(`https://eco-craft-server.vercel.app/my-art-and-craft-list/${email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setMyItems(data);
-          const filteredItems = myItems.filter((item) => item.customization === "No");
-          setMyItems(filteredItems);
-          console.log(myItems);
-        });
+      const filteredNewItems = myItems.filter((item) => item.customization === "No");
+      setFilteredItems(filteredNewItems);
     }
   };
 
@@ -79,9 +68,11 @@ const MyArtAndCraftList = () => {
         <h1 className="text-[32px] flex items-center justify-center font-semibold text-center h-[50vh]">You have not added any item yet</h1>
       )}
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
-        {myItems.map((myItem, index) => (
-          <MyItemsCard myItem={myItem} handleDelete={handleDelete} key={index}></MyItemsCard>
-        ))}
+        {filteredItems.length > 0 &&
+          filteredItems.map((myItem, index) => <MyItemsCard myItem={myItem} handleDelete={handleDelete} key={index}></MyItemsCard>)}
+
+        {filteredItems.length === 0 &&
+          myItems.map((myItem, index) => <MyItemsCard myItem={myItem} handleDelete={handleDelete} key={index}></MyItemsCard>)}
       </div>
     </div>
   );
