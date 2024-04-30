@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../authProvider/AuthProvider";
 import { RiUser3Line } from "react-icons/ri";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
@@ -79,8 +80,8 @@ const Navbar = () => {
         {user ? (
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button">
-              {/* <RiUser3Line className="size-6" /> */}
-              <img src={user.photoURL} title={user.displayName} className="border-2 border-primary size-10 rounded-full w-full" />
+              <img src={user.photoURL} id="user-anchor-element" className=" border-2 border-primary size-10 rounded-full w-full" />
+              <Tooltip anchorSelect="#user-anchor-element" content={user.displayName} />
             </div>
             <ul tabIndex={0} className="dropdown-content z-[20] menu p-2 shadow bg-base-100 rounded-box w-52">
               <li>
@@ -90,7 +91,8 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex items-center gap-3">
-            <div className="dropdown dropdown-end">
+            <div id="no-user-anchor" className="dropdown dropdown-end">
+              <Tooltip anchorSelect="#no-user-anchor" content="Login or Register" />
               <div tabIndex={0} role="button">
                 <RiUser3Line className="size-6" />
               </div>

@@ -27,7 +27,7 @@ const MyArtAndCraftList = () => {
 
   // Delete item function
   const handleDelete = (id) => {
-    fetch(`https://eco-craft-server.vercel.app/delete/${id}`, {
+    fetch(`http://localhost:5000/delete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
