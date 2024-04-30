@@ -1,3 +1,4 @@
+import AboutUs from "../components/Homepage/AboutUs";
 import CraftItems from "../components/Homepage/CraftItemsSection";
 import Hero from "../components/Homepage/Hero";
 import SubCategoriesCard from "../components/Homepage/SubCategoriesCard";
@@ -27,11 +28,14 @@ const Home = () => {
   return (
     <div>
       <Hero></Hero>
+      <AboutUs></AboutUs>
       <CraftItems></CraftItems>
-      <div className="container mx-auto grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-        {subCategoriesData.map((category, index) => (
-          <SubCategoriesCard category={category} key={index}></SubCategoriesCard>
-        ))}
+      <div className=" bg-secondary dark:bg-gray-700">
+        <div className="container mx-auto lg:py-[100px] py-[50px] grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
+          {subCategoriesData.map((category, index) => (
+            <SubCategoriesCard category={category} key={index}></SubCategoriesCard>
+          ))}
+        </div>
       </div>
     </div>
   );
