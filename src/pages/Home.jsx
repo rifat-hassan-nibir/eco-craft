@@ -3,6 +3,7 @@ import CraftItems from "../components/Homepage/CraftItemsSection";
 import Hero from "../components/Homepage/Hero";
 import SubCategoriesCard from "../components/Homepage/SubCategoriesCard";
 import { useEffect, useState } from "react";
+import WhatDoWeOffer from "../components/Homepage/WhatDoWeOffer";
 
 const Home = () => {
   const [subCategoriesData, setSubCategoriesData] = useState([]);
@@ -38,6 +39,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <WhatDoWeOffer></WhatDoWeOffer>
     </div>
   );
 };

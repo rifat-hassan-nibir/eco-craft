@@ -9,7 +9,7 @@ const AboutUs = () => {
             <img src={AboutUsImage} alt="" />
           </div>
           <div className="lg:w-1/2">
-            <h1 className="lg:text-[32px] text-[24px] dark:text-white text-center lg:text-left font-semibold mb-5">About Us</h1>
+            <h1 className="lg:text-[32px] text-[24px] dark:text-white text-center lg:text-left font-bold mb-5">About Us</h1>
             <p className="text-[16px] text-gray-600 dark:text-gray-300">
               Welcome to Eco Craft, your destination for beautifully crafted wood and jute creations. At Eco Craft, we blend the natural
               elegance of wood with the rustic charm of jute to create unique pieces that add warmth and character to any space. Each item
