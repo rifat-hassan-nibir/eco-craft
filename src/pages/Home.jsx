@@ -30,8 +30,9 @@ const Home = () => {
       <Hero></Hero>
       <AboutUs></AboutUs>
       <CraftItems></CraftItems>
-      <div className=" bg-secondary dark:bg-gray-700">
-        <div className="container mx-auto lg:py-[100px] py-[50px] grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
+      <div className=" bg-secondary dark:bg-gray-700 lg:py-[100px] py-[50px]">
+        <h1 className="lg:text-[32px] text-[24px] dark:text-white text-center font-semibold mb-5">Sub Categories</h1>
+        <div className="container mx-auto  grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
           {subCategoriesData.map((category, index) => (
             <SubCategoriesCard category={category} key={index}></SubCategoriesCard>
           ))}

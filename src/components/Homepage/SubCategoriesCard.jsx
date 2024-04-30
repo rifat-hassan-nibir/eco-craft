@@ -9,8 +9,8 @@ const SubCategoriesCard = ({ category }) => {
           <img src={image} className="h-[250px] w-full" alt={name} />
         </div>
         <div className="p-6">
-          <h4 className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">{name}</h4>
-          <p className="block mt-3 font-sans text-xl antialiased font-normal leading-relaxed text-gray-700">{short_description}</p>
+          <h4 className="block font-sans text-xl antialiased font-medium leading-snug tracking-normal text-blue-gray-900 mb-3">{name}</h4>
+          <p className="block font-sans text-base antialiased font-light leading-relaxed text-gray-700">{short_description}</p>
         </div>
       </div>
     </Link>
