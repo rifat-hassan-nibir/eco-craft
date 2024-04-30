@@ -1,5 +1,7 @@
 # Eco Craft
 
+Category: Jute & wooden Crafts
+
 Live Site:
 
 - [https://eco-craft.web.app](https://eco-craft.web.app/)
