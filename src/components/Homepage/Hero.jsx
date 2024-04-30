@@ -7,7 +7,7 @@ const Hero = () => {
       <div className="flex lg:flex-row lg:items-center flex-col">
         <div className="lg:w-1/2 space-y-[8px]">
           <h1 className="lg:text-[54px] font-bold dark:text-white">
-            <Typewriter words={["Welcome To Eco Craft", "Best Wooden And Jute Products"]} loop={0} cursor cursorStyle="_" />
+            <Typewriter words={["Welcome To Eco Craft", "Wooden And Jute Products"]} loop={0} cursor cursorStyle="_" />
           </h1>
           <p className="text-[16px] lg:w-[80%] tracking-wide text-gray-500 dark:text-gray-300">
             Discover the Natural Elegance: Crafted Wood & Jute Creations Await! Explore Our Sustainable Selection Today.

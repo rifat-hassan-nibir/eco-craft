@@ -21,7 +21,6 @@ const Routes = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch("https://eco-craft-server.vercel.app/sub-categories"),
       },
       {
         path: "/all-art-and-craft-items",
