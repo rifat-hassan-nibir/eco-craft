@@ -62,7 +62,7 @@ const MyArtAndCraftList = () => {
   const handleCustomization = (e) => {
     const selectedOption = e.target.value;
 
-    fetch(`http://localhost:5000/customization/${email}/${selectedOption}`)
+    fetch(`https://eco-craft-server.vercel.app/customization/${email}/${selectedOption}`)
       .then((res) => res.json())
       .then((data) => setMyItems(data));
   };
