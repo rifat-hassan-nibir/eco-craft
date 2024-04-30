@@ -34,9 +34,48 @@ const MyArtAndCraftList = () => {
       .then((data) => console.log(data));
   };
 
+  // Customization Filter
+  const handleCustomization = (e) => {
+    const selectedOption = e.target.value;
+    console.log(selectedOption);
+    if (selectedOption === "Yes") {
+      fetch(`https://eco-craft-server.vercel.app/my-art-and-craft-list/${email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setMyItems(data);
+          const filteredItems = myItems.filter((item) => item.customization === "Yes");
+          setMyItems(filteredItems);
+          console.log(myItems);
+        });
+    }
+    if (selectedOption === "No") {
+      fetch(`https://eco-craft-server.vercel.app/my-art-and-craft-list/${email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setMyItems(data);
+          const filteredItems = myItems.filter((item) => item.customization === "No");
+          setMyItems(filteredItems);
+          console.log(myItems);
+        });
+    }
+  };
+
   return (
     <div className="container mx-auto">
-      {myItems.length < 1 && (
+      <div className="w-[30%] mx-auto mb-5">
+        <label htmlFor="customization">Filter By Customization</label>
+        <select
+          onChange={handleCustomization}
+          id="customization"
+          name="customization"
+          className="select select-bordered w-full rounded-none"
+        >
+          <option>Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      {myItems.length === 0 && (
         <h1 className="text-[32px] flex items-center justify-center font-semibold text-center h-[50vh]">You have not added any item yet</h1>
       )}
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
