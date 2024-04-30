@@ -1,6 +1,6 @@
 # Eco Craft
 
-Category: Jute & wooden Crafts
+Category: Jute & Wooden Crafts
 
 Live Site:
 
